@@ -48,22 +48,18 @@ def print_board(board):
 			print(board[row][place], '| ', end='')
 			if place == 2:
 				print('')
-
 	print('-------------')
 
 def get_move(board, player):
 	pos = int(input(f'Turn: {player}, insert place index (1-9):'))
 	while is_position_taken(board, pos):
 		pos = input(f'Place was already taken! Try again:')
-
 	return format_position(pos)
 
 def get_AI_move(board):
 	pos = randint(1, 9)
-
 	while is_position_taken(board, pos):
 		pos = randint(1, 9)
-
 	return format_position(pos)
 
 def check_win(board):
@@ -90,7 +86,6 @@ def format_position(pos):
 		row = 1
 	elif 7 <= pos <= 9:
 		row = 2
-
 	return row, place
 
 def is_position_taken(board, pos):
