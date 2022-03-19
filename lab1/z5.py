@@ -1,7 +1,6 @@
 import os
 
 def main():
-	# board = {1: ' ', 2: ' ', 3: ' ', 4: ' ', 5: ' ', 6: ' ', 7: ' ', 8: ' ', 9: ' '}
 	board = [' ' for _ in range(9)]
 	player = 'o'  # define who starts
 	winner = ' '
