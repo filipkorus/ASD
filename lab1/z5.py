@@ -86,10 +86,10 @@ def is_position_correct(board: list, pos: int) -> bool:
 	return board[pos] == ' '
 
 def get_user_move(board: list, player: str) -> int:
-	pos = int(input(f'Turn: {player}, insert place index (1-9):'))
+	pos = int(input(f'Turn: {player}, insert place index (1-9):')) - 1
 	while not is_position_correct(board, pos):
 		pos = int(input(f'Incorrect place! Try again:'))
-	return pos - 1
+	return pos
 
 def get_AI_move(board: list) -> int:
 	best_score = -999
