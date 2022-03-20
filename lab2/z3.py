@@ -9,6 +9,6 @@ if __name__ == '__main__':
 		print(f"Dictionary {'' if text in dictionary else 'not '}includes given word")
 		print('Execution time:', time() - start)
 	else:
-		print('Sting contains more than one word')
+		print('String contains more than one word')
 
 
