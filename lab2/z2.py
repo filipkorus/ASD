@@ -6,10 +6,7 @@ if __name__ == '__main__':
 	for line in f:  # insert every line from file to 'items' array as a dict
 		val = line.split(',', 1)[1].replace('\n', '').lower()
 		if val != '' and val != 'val':
-			items.append({
-				'id': index,
-				'val': val
-			})
+			items.append({'id': index, 'val': val})
 			index += 1
 
 	items = sorted(items, key=lambda d: d['id'])  # sort items array by id
