@@ -2,23 +2,17 @@ if __name__ == '__main__':
 	f = open('zadanie2.csv', 'r')
 
 	items = []
+	index = 1
 	for line in f:  # insert every line from file to 'items' array as a dict
-		try:
-			id = int(line.split(',')[0])
-		except ValueError:
-			id = 0
 		val = line.split(',', 1)[1].replace('\n', '').lower()
-		if val != '' and id != 0:
+		if val != '' and val != 'val':
 			items.append({
-				'id': id,
+				'id': index,
 				'val': val
 			})
+			index += 1
 
 	items = sorted(items, key=lambda d: d['id'])  # sort items array by id
-
-	for i in range(len(items) - 1):  # check ids
-		if items[i]['id'] == items[i + 1]['id']:
-			items[i + 1]['id'] += 1  # increment id when duplicate found
 
 	for i, item in enumerate(items):
 		deleted_words = []
