@@ -8,27 +8,22 @@ if __name__ == '__main__':
 		except ValueError:
 			id = 0
 		val = line.split(',', 1)[1].replace('\n', '').lower()
-		if val != '' and id !=0:
+		if val != '' and id != 0:
 			items.append({
 				'id': id,
 				'val': val
 			})
-	items.pop(0)
 	items = sorted(items, key=lambda d: d['id'])
-
-	print(items[1])
-	exit(0)
 
 	for i in range(len(items) - 1):
 		if items[i]['id'] == items[i + 1]['id']:
 			items[i + 1]['id'] += 1
 
 	for i, item in enumerate(items):
-		new_line = False
+		deleted_words = []
 		for word in item['val'].split(' '):
 			if len(word) > 1 and abs(ord(word[0]) - ord(word[1])) == 1:
-				new_line = True
 				items[i]['val'].replace(word, '')
-				print(f"id: {item['id']}, deleted word: {word}", end=' ')
-		if new_line:
-			print()
+				deleted_words.append(word)
+		if len(deleted_words):
+			print(f"id: {item['id']}, deleted words: {deleted_words}")
