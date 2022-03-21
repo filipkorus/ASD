@@ -13,7 +13,8 @@ if __name__ == '__main__':
 		deleted_words = []
 		for word in item['val'].split(' '):
 			word = word.strip(',.')  # delete commas and dots from word
-			if len(word) > 1 and abs(ord(word[0]) - ord(word[1])) == 1:  # check if first two chars are next to each other in ASCII
+			# check if first two chars are next to each other in ASCII
+			if len(word) > 1 and abs(ord(word[0]) - ord(word[1])) == 1:
 				items[i]['val'].replace(word, '')  # delete word from string
 				deleted_words.append(word)
 		if len(deleted_words):
