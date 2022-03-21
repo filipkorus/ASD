@@ -7,14 +7,17 @@ if __name__ == '__main__':
 			id = int(line.split(',')[0])
 		except ValueError:
 			id = 0
-		val = line.split(',')[1].replace('\n', '').lower()
-		if val != '':
+		val = line.split(',', 1)[1].replace('\n', '').lower()
+		if val != '' and id !=0:
 			items.append({
 				'id': id,
 				'val': val
 			})
 	items.pop(0)
 	items = sorted(items, key=lambda d: d['id'])
+
+	print(items[1])
+	exit(0)
 
 	for i in range(len(items) - 1):
 		if items[i]['id'] == items[i + 1]['id']:
