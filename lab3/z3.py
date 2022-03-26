@@ -3,13 +3,12 @@ import random
 
 def definite_integral(a, b, func):
 	N = 100000  # number of random points: the bigger => the better result
-
 	dx = b - a  # distance between a & b
 	s = 0
 	for _ in range(N):
 		random_position = random.uniform(a, b)  # random float from range (a, b)
 		s += func(random_position)
-	s = dx * s / N  # number of points inside rectangle to all points ratio multiplied by range between a & b
+	s = dx * s / N  # number of points inside rectangle to all points ratio multiplied by distance between a & b
 	return s
 
 
