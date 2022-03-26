@@ -6,8 +6,7 @@ def definite_integral(a, b, func):
 	dx = b - a  # distance between a & b
 	s = 0
 	for _ in range(N):
-		random_position = random.uniform(a, b)  # random float from range (a, b)
-		s += func(random_position)
+		s += func(random.uniform(a, b))  # get function value at random float from range (a, b)
 	s = dx * s / N  # number of points inside rectangle to all points ratio multiplied by distance between a & b
 	return s
 
