@@ -1,4 +1,4 @@
-from math import sin, sqrt
+from math import sin
 import random
 
 def def_integral(a, b, is_inside):
