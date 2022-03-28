@@ -1,8 +1,6 @@
 from math import sqrt
 
 class Circle:
-	radius = 0
-
 	def __init__(self, radius):
 		self.radius = radius
 
@@ -14,8 +12,6 @@ class Circle:
 
 
 class Triangle:
-	a, b, c = 0, 0, 0
-
 	def __init__(self, a, b, c):
 		self.a, self.b, self.c = a, b, c
 
@@ -27,8 +23,6 @@ class Triangle:
 		return self.a + self.b + self.c
 
 class Square:
-	a = 0
-
 	def __init__(self, a):
 		self.a = a
 
