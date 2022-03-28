@@ -1,21 +1,23 @@
 from math import sin, sqrt
 import random
 
-def definite_integral(a, b, func):
-	N = 100000  # number of random points: the bigger => the better result
-	dx = b - a  # distance between a & b
+def def_integral(a, b, is_inside):
+	N = 1000000
 	s = 0
 	for _ in range(N):
-		s += func(random.uniform(a, b))  # get function value at random float from range (a, b)
-	return dx * s / N  # number of points inside rectangle to all points ratio multiplied by distance between a & b
+		x = random.uniform(a, b)
+		y = random.uniform(-5, 5)
+		if is_inside(x, y):
+			s += 1
+	return (b - a) * 10 * s / N
 
 if __name__ == '__main__':
 	print(
 		'area of circle with radius of 1 is',
-		4 * definite_integral(0, 1, lambda x: sqrt(1 - x * x))
+		2 * def_integral(0, 1, lambda x, y: x**2 + y**2 < 1)
 	)
 
 	print(
-		'definite integral of sin(x) in range (0, 2) is:',
-		definite_integral(0, 2, sin)
+		'definite integral of sin(x) in range (0, 2) is',
+		def_integral(0, 2, lambda x, y: sin(x) > y > 0)
 	)
