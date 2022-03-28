@@ -12,7 +12,7 @@ def definite_integral(a, b, func):
 if __name__ == '__main__':
 	print(
 		'area of circle with radius of 1 is',
-		4 * definite_integral(0, 1, lambda r: sqrt(1 - r * r))
+		4 * definite_integral(0, 1, lambda x: sqrt(1 - x * x))
 	)
 
 	print(
