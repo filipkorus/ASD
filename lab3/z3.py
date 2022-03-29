@@ -1,7 +1,6 @@
 from math import sin
 import random
 
-
 def def_integral(a, b, is_inside, R):
 	N = 1000000
 	s = 0
