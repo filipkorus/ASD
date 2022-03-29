@@ -11,7 +11,6 @@ def def_integral(a, b, is_inside, R):
 			s += 1
 	return 2 * R * (b - a) * s / N
 
-
 if __name__ == '__main__':
 	radius = 1
 	print(
