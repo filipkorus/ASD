@@ -28,6 +28,6 @@ def save_to_file(L1: LOTTO, L2: LOTTO) -> None:
 
 if __name__ == '__main__':
 	L1 = LOTTO(5)
-	L2 = LOTTO(7)
+	L2 = LOTTO(6)
 
 	save_to_file(L1, L2)
