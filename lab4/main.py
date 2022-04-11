@@ -23,26 +23,21 @@ def merge(A: list, start: int, mid: int, end: int) -> None:
 	tmp = []
 	i = start
 	j = mid + 1
-	k = 0
 
 	while i <= mid and j <= end:
 		if A[i] <= A[j]:
 			tmp.append(A[i])
-			k += 1
 			i += 1
 		else:
 			tmp.append(A[j])
-			k += 1
 			j += 1
 
 	while i <= mid:
 		tmp.append(A[i])
-		k += 1
 		i += 1
 
 	while j <= end:
 		tmp.append(A[j])
-		k += 1
 		j += 1
 
 	for i in range(start, end + 1):
