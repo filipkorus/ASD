@@ -2,3 +2,4 @@
 *.zip
 *.docx
 __pycache__
+*_report.pdf
