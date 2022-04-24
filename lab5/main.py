@@ -3,10 +3,10 @@ from texttable import Texttable
 
 def hanoi(n: int, src: str, buff: str, dest: str, output: bool = True) -> None:
 	if n > 0:
-		hanoi(n - 1, src, buff, dest, output)
+		hanoi(n - 1, src, dest, buff, output)
 		if output:
 			print(src, '->', dest)
-		hanoi(n - 1, buff, dest, src, output)
+		hanoi(n - 1, buff, src, dest, output)
 
 def hanoi_iter(n: int, src: str, buff: str, dest: str, output: bool = True) -> None:
 	if n % 2 == 0:
@@ -49,13 +49,13 @@ def move(a: list, b: list) -> bool:
 		b.pop()
 		a.append(tmp)
 		return False
-	elif not b:
+	elif not b:  # if b is empty
 		tmp = a[-1]
 		a.pop()
 		b.append(tmp)
 		return True
 	else:
-		if a[-1] < b[-1]:
+		if a[-1] < b[-1]:  # if a's top disk is smaller than b's top disk
 			tmp = a[-1]
 			a.pop()
 			b.append(tmp)
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 		iter_time_start = time()
 		hanoi_iter(N, 'src', 'buff', 'dest', False)
 		iter_time_end = time()
-		
+
 		data.append([
 			N,
 			rec_time_end - rec_time_start,
