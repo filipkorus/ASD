@@ -1,22 +1,37 @@
 from time import time
 from texttable import Texttable
 
-def hanoi(n: int, src: str, buff: str, dest: str, output: bool = True) -> None:
+
+def hanoi(n: int, src: ..., buff: ..., dest: ..., output: bool = True) -> None:
+	"""
+	:param output: set to False disables printing
+	:param dest: destination stack identifier
+	:param buff: buffer stack identifier
+	:param src: source stack identifier
+	:param n: amount of disks on source stack
+	"""
 	if n > 0:
 		hanoi(n - 1, src, dest, buff, output)
 		if output:
 			print(src, '->', dest)
 		hanoi(n - 1, buff, src, dest, output)
 
-def hanoi_iter(n: int, src: str, buff: str, dest: str, output: bool = True) -> None:
+def hanoi_iter(n: int, src: ..., buff: ..., dest: ..., output: bool = True) -> None:
+	"""
+	:param output: set to False disables printing
+	:param dest: destination stack identifier
+	:param buff: buffer stack identifier
+	:param src: source stack identifier
+	:param n: amount of disks on source stack
+	"""
 	if n % 2 == 0:
 		dest, buff = buff, dest
 
-	src_stack = [i for i in range(n, 0, -1)]
+	src_stack = [i for i in range(n)]
 	buff_stack = []
 	dest_stack = []
 
-	for i in range(1, 2**n):
+	for i in range(1, 2 ** n):
 		if i % 3 == 1:
 			if move(src_stack, dest_stack):
 				if output:
@@ -39,31 +54,23 @@ def hanoi_iter(n: int, src: str, buff: str, dest: str, output: bool = True) -> N
 				if output:
 					print(dest, '->', buff)
 
-def move(a: list, b: list) -> bool:
+def move(A: list, B: list) -> bool:
 	"""
-	:return:
-	True if move was from a to b else False
+	moves between A and B or otherwise\n
+	:return: True if move was from A to B else False
 	"""
-	if not a:  # if a is empty
-		tmp = b[-1]
-		b.pop()
-		a.append(tmp)
+	if not A:  # if A is empty
+		A.insert(0, B.pop(0))  # place top disk of B to top of A stack
 		return False
-	elif not b:  # if b is empty
-		tmp = a[-1]
-		a.pop()
-		b.append(tmp)
+	elif not B:  # if B is empty
+		B.insert(0, A.pop(0))
 		return True
 	else:
-		if a[-1] < b[-1]:  # if a's top disk is smaller than b's top disk
-			tmp = a[-1]
-			a.pop()
-			b.append(tmp)
+		if A[0] < B[0]:  # if A's top disk is smaller than B's top disk
+			B.insert(0, A.pop(0))
 			return True
 		else:
-			tmp = b[-1]
-			b.pop()
-			a.append(tmp)
+			A.insert(0, B.pop(0))
 			return False
 
 if __name__ == '__main__':
@@ -90,4 +97,3 @@ if __name__ == '__main__':
 		*data
 	])
 	print(t.draw())
-	
