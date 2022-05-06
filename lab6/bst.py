@@ -72,13 +72,13 @@ class BST:
 
 	def max(self):
 		curr_node = self.root
-		while curr_node.right:
+		while curr_node.right is not None:
 			curr_node = curr_node.right
 		return curr_node.value
 
 	def min(self):
 		curr_node = self.root
-		while curr_node.left:
+		while curr_node.left is not None:
 			curr_node = curr_node.left
 		return curr_node.value
 
