@@ -20,7 +20,7 @@ class Trees:
 	def search(self, value):
 		for tree in self.tree_list:
 			if abs(tree.root.value - value) <= 0.5:
-				return tree.search(value)
+				return tree.search(tree.root, value)
 		return False
 
 	def print(self):

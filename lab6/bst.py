@@ -82,21 +82,14 @@ class BST:
 			curr_node = curr_node.left
 		return curr_node.value
 
-	def search(self, value):
-		if value < self.root.value:
-			return self._search(self.root, value)
-		elif value > self.root.value:
-			return self._search(self.root, value)
-		return True  # found
-
-	def _search(self, curr_node, value):
+	def search(self, curr_node, value):
 		if value < curr_node.value:
 			if curr_node.left is None:
 				return False
-			return self._search(curr_node.left, value)
+			return self.search(curr_node.left, value)
 		elif value > curr_node.value:
 			if curr_node.right is None:
 				return False
-			return self._search(curr_node.right, value)
+			return self.search(curr_node.right, value)
 		else:
 			return True
