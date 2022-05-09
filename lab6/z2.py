@@ -10,8 +10,8 @@ if __name__ == '__main__':
 	# trees.print()
 
 	print(
-		f'min = {trees.min()}',  # MIN
-		f'max = {trees.max()}',  # MAX
+		f'min = {trees.min(2)}',  # MIN on third tree
+		f'max = {trees.max(2)}',  # MAX on third tree
 		trees.search(7.7),  # SEARCH
 		sep='\n'
 	)
