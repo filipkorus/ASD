@@ -20,7 +20,7 @@ if __name__ == '__main__':
 	plt.plot(Ns, rabin_karp_times, color='b', label='Rabin - Karp algorithm', marker='x', markersize=6, linestyle='')
 
 	plt.title('times of algorithms depending on matrix size')
-	plt.legend()
+	plt.legend()  # show legend
 	plt.ylabel('time [s]')
 	plt.xlabel('matrix size [N x N]')
-	plt.savefig(OUTPUT_FILE, bbox_inches='tight')
+	plt.savefig(OUTPUT_FILE, bbox_inches='tight')  # save plot to png file
