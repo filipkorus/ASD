@@ -36,7 +36,7 @@ def get_closest_element_idx(src_idx, data):
 def find_idx(idx, data):
 	return next((index for (index, d) in enumerate(data) if d['idx'] == idx), None)
 
-def generate_map(data, plot_name, connections=None, caption_connection_order=True):
+def generate_map(data, plot_title, plot_name, connections=None, caption_connection_order=True):
 	plt.clf()  # clear plot
 	if connections is not None:
 		Xs, Ys = [], []
@@ -69,7 +69,7 @@ def generate_map(data, plot_name, connections=None, caption_connection_order=Tru
 				plt.annotate(str(i), (data[idx]['x'], data[idx]['y']), fontsize=8)
 				i += 1
 
-		plt.title('found path')
+		plt.title(plot_title)
 		plt.ylabel('y')
 		plt.xlabel('x')
 		plt.savefig(plot_name, bbox_inches='tight')  # save plot to png file
@@ -78,7 +78,7 @@ def generate_map(data, plot_name, connections=None, caption_connection_order=Tru
 	for row in data:
 		plt.plot(row['x'], row['y'], marker='o', markersize=5, linestyle='')
 		plt.annotate(str(row['idx']), (row['x'], row['y']), fontsize=8)
-		plt.title('map of cities')
+		plt.title(plot_title)
 		plt.ylabel('y')
 		plt.xlabel('x')
 		plt.savefig(plot_name, bbox_inches='tight')  # save plot to png file
@@ -107,22 +107,7 @@ if __name__ == '__main__':
 			'y': float(line[2]),
 		})
 
-	# generate_map(data, 'cities.png')
-
-	# distances = []
-	# for i in range(1, 101):
-	# 	curr_idx = i
-	# 	path = []
-	# 	tmp = data.copy()
-	# 	while len(tmp) > 0:
-	# 		prev_idx = curr_idx
-	# 		curr_idx, list_idx = get_closest_element_idx(curr_idx, tmp)
-	# 		path.append(prev_idx)
-	# 		tmp.pop(find_idx(prev_idx, tmp))
-	# 	distances.append(measure_path_length(path, data))
-	#
-	# print(distances, distances.index(min(distances)), min(distances), max(distances), sep='\n')
-	# exit(0)
+	generate_map(data, 'map of cities','cities.png')
 
 	curr_idx = 93
 	path = []
@@ -138,5 +123,5 @@ if __name__ == '__main__':
 	print('naive path:', naive_result[1])
 	print('my algo distance =', measure_path_length(path, data))
 	print('my algo path:', path)
-	generate_map(data, 'my_algo_path.png', connections=path, caption_connection_order=True)
-	generate_map(data, 'naive_path.png', connections=naive_result[1], caption_connection_order=True)
+	generate_map(data, 'my algorithm path', 'my_algo_path.png', connections=path, caption_connection_order=True)
+	generate_map(data, 'naive algorithm path', 'naive_path.png', connections=naive_result[1], caption_connection_order=True)
