@@ -1,2 +1,4 @@
-## ASD Solves 
-Solves for Algorithms and Data Structures course in second semester of ICT at AGH UST in Cracow.
+# ASD
+My solves from Algorithms and Data Structures course at AGH UST, ICT - 2rd semester.
+
+**Author**: [Filip Korus](https://fkor.us/) <[fkorus@student.agh.edu.pl](mailto:fkorus@student.agh.edu.pl)>
